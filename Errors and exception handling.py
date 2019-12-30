@@ -74,10 +74,38 @@ finally:
 print("hey let me execute")
 
 
-# In[ ]:
+# In[31]:
 
 
+def ask_for_int():
+    
+    while(True):
+        try:
+            result = int(input("provide a number"))
 
+        except:
+            print("whoop thats not a number")
+            continue
+
+        else:
+            print("Thank you" + "you enterd" + str( result))
+            break
+
+        finally:
+            print("end of try/except/finally")
+            print("I always run in the end")
+
+
+# In[32]:
+
+
+ask_for_int()
+
+
+# In[29]:
+
+
+ask_for_int()
 
 
 # In[ ]:
