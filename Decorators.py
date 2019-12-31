@@ -203,10 +203,77 @@ def function_need_decorator():
 function_need_decorator()
 
 
-# In[ ]:
+# In[75]:
+
+
+def uppercase_decorator(function):
+    def wrapper():
+        func = function()
+        make_uppercase = func.upper()
+        return make_uppercase
+
+    return wrapper
+
+
+# In[85]:
+
+
+@uppercase_decorator
+def my_name():
+    return "uzair"
+
+
+# In[86]:
+
+
+my_name()
+
+
+# In[92]:
 
 
 
+def splitting(function):
+    
+    def wrapper():
+        return function().split()
+    
+    return wrapper
+        
+
+
+# In[93]:
+
+
+@splitting
+@uppercase_decorator
+def my_name():
+    return "uzair"
+
+
+# In[94]:
+
+
+my_name()
+
+
+# In[95]:
+
+
+# Arguments in Decorator Functions
+
+def decorator_with_arguments(function):
+    def wrapper_accepting_arguments(arg1, arg2):
+        print("My arguments are: {0}, {1}".format(arg1,arg2))
+        function(arg1, arg2)
+    return wrapper_accepting_arguments
+
+
+@decorator_with_arguments
+def cities(city_one, city_two):
+    print("Cities I love are {0} and {1}".format(city_one, city_two))
+
+cities("Nairobi", "Accra")
 
 
 # In[ ]:
